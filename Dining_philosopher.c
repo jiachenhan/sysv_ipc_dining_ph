@@ -75,6 +75,7 @@ void put_forks(int i){
 void test(int i){
     //printf("wrong\n");
     if(states[i]==HUNGRY&&states[LEFT]!=EATING&&states[RIGHT]!=EATING){
+        //printf("wrong\n");
         states[i]=EATING;
         sem_v(S[i]);
     }
@@ -127,7 +128,9 @@ void test(int i){
             break;
         }
     }
-     
+    for(int i=0;i<N;i++){
+        states[i]=HUNGRY;
+    }
     phliosophere(no);         //哲学家行为实现
  
     return 0;
